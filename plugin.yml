@@ -1,0 +1,14 @@
+main: rubrub07.SimpleNBTSell.SimpleNBTSell
+version: 0.0.1
+author: rubrub07
+depend: [NBTAPI, Vault]
+softdepend: [MMOItems]
+api-version: 1.16
+name: SimpleNBTSell
+commands:
+      sns:
+         description: comando principal
+      sns sellhand:
+         description: vende los items de la mano
+      sns sellallinv:
+         description: vende los items del inventario

@@ -1,0 +1,4 @@
+config:
+   prefix: "&c[&aSNS&c]&r"
+   NBTTAG: CUSTOM_SELL
+   ECOCMD: "eco give %player% %money%"
