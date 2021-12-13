@@ -38,6 +38,7 @@ public class SimpleNBTSell extends JavaPlugin {
 	public void registrarCommandos()
 	{
 		this.getCommand("sns").setExecutor(new sns(this));
+		this.getCommand("sns").setTabCompleter(new sns(this));
 	}
 	
 	

@@ -1,11 +1,16 @@
 package rubrub07.SimpleNBTSell.commands;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -14,7 +19,7 @@ import de.tr7zw.nbtapi.NBTItem;
 import rubrub07.SimpleNBTSell.SimpleNBTSell;
 
 @SuppressWarnings({ "deprecation", "unused" })
-public class sns implements CommandExecutor{
+public class sns implements TabExecutor{
 	
 	private SimpleNBTSell plugin;
 	
@@ -35,6 +40,11 @@ public class sns implements CommandExecutor{
 		if(Bukkit.getPluginManager().getPlugin("Vault") == null)
 		{
 			jugador.sendMessage(plugin.name + ChatColor.translateAlternateColorCodes('&', "&c A ocurrido un error no se encuentra la dependencia &aVault"));
+			return false;
+		}
+		if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") == null)
+		{
+			jugador.sendMessage(plugin.name + ChatColor.translateAlternateColorCodes('&', "&c A ocurrido un error no se encuentra la dependencia &aPlaceholderAPI"));
 			return false;
 		}
 		
@@ -123,6 +133,10 @@ public class sns implements CommandExecutor{
 							return false;
 						}
 					}
+						
+				
+					
+				
 				else 
 				{
 					jugador.sendMessage(plugin.name + ChatColor.translateAlternateColorCodes('&', "&cEl comando no existe"));
@@ -136,5 +150,19 @@ public class sns implements CommandExecutor{
 				}
 			}
 		}
+	
+
+	 @Override
+	 public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+		 List<String> list = new ArrayList<>();
+		 
+		 list.add("sellallinv");
+		 list.add("sellhand");
+		 list.add("mutechat");
+		 
+		 if(list != null)
+			 Collections.sort(list);
+		 return list;
+	 }
 	}
 
